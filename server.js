@@ -6,8 +6,8 @@ I declare that this assignment is my own work in accordance with Seneca  Academi
 Name: _Gurkirat Singh_____
 Student ID: ___144886223____
 Date: ____node31, Jan 2024____
-Cyclic Web App URL: https://fine-seal-cloak.cyclic.app
-GitHub Repository URL: https://github.com/Abhijeet17Singh/web322-app.git
+Cyclic Web App URL: https://glamorous-worm-nightgown.cyclic.app/about
+GitHub Repository URL: https://github.com/gsingh1168/web322-app
 
 ********************************************************************************/ 
 const express = require('express');
