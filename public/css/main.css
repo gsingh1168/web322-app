@@ -1,53 +1,62 @@
+/* main.css */
+
+/* Body styles */
 body {
-    font-family: 'Noteworthy', sans-serif;
-    background-color: #000000; 
-    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffefd5; /* Light peach background */
+    color: #333; /* Dark text color */
 }
 
+/* Navbar styles */
 .navbar {
-    background-color: #ff0000; 
+    background-color: #20bf6b; /* Greenish navbar background */
 }
 
-.navbar-brand, .navbar-nav .nav-link {
-    color: #ffffff;
-}
-.navbar-dark .navbar-nav .nav-link:hover {
-    color:#000000; 
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #fff; /* White navbar brand text */
 }
 
+.navbar-nav .nav-link {
+    color: #fff; /* White navbar link text */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fd9644; /* Orange hover color */
+}
+
+/* Container styles */
 .container {
-    margin-top: 70px;
+    padding-top: 60px;
 }
 
-.col-md-3, .col-md-9 {
+/* Column styles */
+aside {
+    background-color: #fd9644; /* Orange sidebar background */
+    color: #fff; /* White text in sidebar */
     padding: 20px;
-    border-radius: 8px;
 }
 
-.col-md-3 {
-    background-color: #d60000; 
+section.main {
+    background-color: #ffffff; /* White main section background */
+    color: #333; /* Dark text in main section */
+    padding: 20px;
 }
 
-.col-md-9 {
-    background-color: #000000; 
+/* Button styles */
+.btn {
+    background-color: #3498db; /* Blue button background */
+    color: #fff; /* White text on button */
 }
 
-article {
-    margin-bottom: 20px;
+.btn:hover {
+    background-color: #9b59b6; /* Purple hover color */
 }
 
-.container:hover,
-.col-md-3:hover,
-.col-md-9:hover {
-    background-color: #000000;
-}
-
-@media (max-width: 767px) {
-    .container {
-        margin-top: 50px;
-    }
-
-    .col-md-3, .col-md-9 {
-        padding: 10px;
-    }
+/* Footer styles */
+footer {
+    background-color: #20bf6b; /* Greenish footer background */
+    color: #fff; /* White footer text */
+    padding: 20px 0;
+    text-align: center;
 }

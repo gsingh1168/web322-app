@@ -3,66 +3,75 @@
 WEB322 – Assignment 02
 I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
 
-Name: __Pushapdeep Singh Khural____________________ 
-Student ID: ___142557222___________ 
-Date: __31 Jan, 2023______________
-Cyclic Web App URL: ____https://tiny-cyan-crayfish-cape.cyclic.app___________________________________________________
-GitHub Repository URL: ____https://github.com/DeepSingh03/web322-app.git__________________________________________________
+Name: _Gurkirat Singh_____
+Student ID: ___144886223____
+Date: ____node31, Jan 2024____
+Cyclic Web App URL: https://fine-seal-cloak.cyclic.app
+GitHub Repository URL: https://github.com/Abhijeet17Singh/web322-app.git
 
 ********************************************************************************/ 
-
 const express = require('express');
 const path = require('path');
-const storeService = require('./store-service'); 
+const storeService = require('./store-service');
 const app = express();
 
 const HTTP_PORT = process.env.PORT || 8080;
+
+// Serve static files from the 'public' directory
 app.use(express.static('public'));
 
+// Redirect "/" route to "/about"
 app.get('/', (req, res) => {
-   
-    res.sendFile(path.join(__dirname, '/views/about.html'));
+    res.redirect('/about');
 });
 
+// Serve about.html from the 'views' directory for "/about" route
 app.get('/about', (req, res) => {
-    
-    res.sendFile(path.join(__dirname, '/views/about.html'));
+    res.sendFile(path.join(__dirname, 'views', 'about.html'));
 });
 
+// Route to get all items with published==true
 app.get('/shop', (req, res) => {
     storeService.getPublishedItems()
-        .then((publishedItems) => {
-            res.json(publishedItems);
+        .then(items => {
+            res.json(items);
         })
-        .catch((err) => {
-            res.json({ message: err });
+        .catch(err => {
+            res.status(500).json({ message: err });
         });
 });
 
+// Route to get all items
 app.get('/items', (req, res) => {
-    storeService.getItems()
-        .then((allItems) => {
-            res.json(allItems);
+    storeService.getAllItems()
+        .then(items => {
+            res.json(items);
         })
-        .catch((err) => {
-            res.json({ message: err });
+        .catch(err => {
+            res.status(500).json({ message: err });
         });
 });
 
+// Route to get all categories
 app.get('/categories', (req, res) => {
     storeService.getCategories()
-        .then((allCategories) => {
-            res.json(allCategories);
+        .then(categories => {
+            res.json(categories);
         })
-        .catch((err) => {
-            res.status(500).send({ message: err });
+        .catch(err => {
+            res.status(500).json({ message: err });
         });
 });
 
+// Initialize data before starting the server
 storeService.initialize()
     .then(() => {
-        app.listen(HTTP_PORT, () => console.log(`Express http server listening on port ${HTTP_PORT}`)); 
+        // Start the server if data initialization is successful
+        app.listen(HTTP_PORT, () => {
+            console.log(`Express http server listening on port ${HTTP_PORT}`);
+        });
     })
     .catch((err) => {
-        console.error(`Error initializing store-service: ${err}`); 
+        // Output the error to the console if data initialization fails
+        console.error("Error initializing data:", err);
     });
