@@ -6,7 +6,7 @@ I declare that this assignment is my own work in accordance with Seneca  Academi
 Name: __Pushapdeep Singh Khural____________________ 
 Student ID: ___142557222___________ 
 Date: __31 Jan, 2023______________
-Cyclic Web App URL: ____https://tan-strange-lion.cyclic.app___________________________________________________
+Cyclic Web App URL: ____https://tiny-cyan-crayfish-cape.cyclic.app___________________________________________________
 GitHub Repository URL: ____https://github.com/DeepSingh03/web322-app.git__________________________________________________
 
 ********************************************************************************/ 
