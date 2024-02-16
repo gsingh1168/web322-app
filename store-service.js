@@ -54,3 +54,49 @@ module.exports.getCategories = function() {
         }
     });
 };
+
+module.exports.addItem = function(itemData) {
+    return new Promise((resolve, reject) => {
+        // Set published to false if undefined
+        itemData.published = itemData.published === undefined ? false : itemData.published;
+        // Set id to length of items array plus one
+        itemData.id = items.length + 1;
+        // Push itemData to items array
+        items.push(itemData);
+        // Resolve promise with updated itemData
+        resolve(itemData);
+    });
+};
+
+module.exports.getItemsByCategory = function(category) {
+    return new Promise((resolve, reject) => {
+        const filteredItems = items.filter(item => item.category === category);
+        if (filteredItems.length === 0) {
+            reject("No results returned");
+        } else {
+            resolve(filteredItems);
+        }
+    });
+};
+
+module.exports.getItemsByMinDate = function(minDateStr) {
+    return new Promise((resolve, reject) => {
+        const filteredItems = items.filter(item => new Date(item.postDate) >= new Date(minDateStr));
+        if (filteredItems.length === 0) {
+            reject("No results returned");
+        } else {
+            resolve(filteredItems);
+        }
+    });
+};
+
+module.exports.getItemById = function(id) {
+    return new Promise((resolve, reject) => {
+        const foundItem = items.find(item => item.id === id);
+        if (!foundItem) {
+            reject("No result returned");
+        } else {
+            resolve(foundItem);
+        }
+    });
+};
